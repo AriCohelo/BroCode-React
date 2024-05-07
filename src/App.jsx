@@ -1,15 +1,13 @@
-import Header from './header.jsx';
-import Footer from './footer.jsx';
-import Food from './food.jsx';
+import Card from './card';
 
 function App() {
 	return (
 		<>
-			<Header />
-			<Food />
-			<Footer />
+			<Card />
+			<Card />
+			<Card />
+			<Card />
 		</>
 	);
 }
-
 export default App;
