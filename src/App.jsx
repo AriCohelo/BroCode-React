@@ -1,13 +1,14 @@
 import Card from './card';
-
+import './card.scss';
 function App() {
 	return (
 		<>
-			<Card />
-			<Card />
+			<Card name={2} />
+			<Card name="Sandra" />
 			<Card />
 			<Card />
 		</>
 	);
 }
+
 export default App;

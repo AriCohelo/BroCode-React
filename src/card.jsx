@@ -1,11 +1,19 @@
 import ProfilePic from './assets/perfilAri.png';
-function Card() {
+import propTypes from 'prop-types';
+function Card(props) {
 	return (
-		<div className="card">
-			<img className="card__image" src={ProfilePic} alt="profile photo" />
-			<h2 className="card__title">Ari Code</h2>
-			<p className="card__text">What the fuck do you care</p>
-		</div>
+		<>
+			<div className="card">
+				<h1 className="card__title">Hi!</h1>
+				<h2 className="name">My name is {props.name || 'Unknown'}</h2>
+				<h3 className="card__description">What the fuck are you looking at?</h3>
+				<button className="card__button">Bite me!</button>
+			</div>
+		</>
 	);
 }
 export default Card;
+
+Card.propTypes = {
+	name: propTypes.string,
+};
