@@ -12,8 +12,10 @@ function Card(props) {
 		</>
 	);
 }
-export default Card;
-
 Card.propTypes = {
 	name: propTypes.string,
 };
+Card.defaultProps = {
+	name: 'Guest',
+};
+export default Card;

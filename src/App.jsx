@@ -3,7 +3,7 @@ import './card.scss';
 function App() {
 	return (
 		<>
-			<Card name={2} />
+			<Card />
 			<Card name="Sandra" />
 			<Card />
 			<Card />
