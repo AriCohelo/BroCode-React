@@ -1,4 +1,5 @@
 import List from './list';
+import Button from './button.jsx';
 
 import './app.scss';
 function App() {
@@ -12,6 +13,7 @@ function App() {
 	return (
 		<>
 			<List items={vida} category="Vida" />
+			<Button />
 		</>
 	);
 }
