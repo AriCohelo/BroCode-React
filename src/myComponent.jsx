@@ -1,65 +1,29 @@
 import React, { useState } from 'react';
 
 function MyComponent() {
-	const [name, setName] = useState('');
-	const [quantity, setQuantity] = useState(1);
-	const [comment, setComment] = useState('');
-	const [payment, setPayment] = useState('');
-	const [shipping, setShipping] = useState('');
+	const [food, setFood] = useState(['apple', 'orange', 'banana']);
 
-	const handleNameChange = (e) => {
-		setName(e.target.value);
+	const handleAddFood = () => {
+		const newFood = document.getElementById('fruitInput').value;
+		document.getElementById('fruitInput').value = '';
+		setFood((f) => [...f, newFood]);
 	};
-
-	const handleQuantity = (e) => {
-		setQuantity(e.target.value);
-	};
-
-	const handleComment = (e) => {
-		setComment(e.target.value);
-	};
-	const handlePayment = (e) => {
-		setPayment(e.target.value);
-	};
-	const handleShipping = (e) => {
-		setShipping(e.target.value);
+	const removeFood = (index) => {
+		setFood(food.filter((_, i) => i !== index));
 	};
 	return (
-		<>
-			<input value={name} onChange={handleNameChange} />
-			<p>Name: {name}</p>
-			<input value={quantity} onChange={handleQuantity} type="number" />
-			<p>Quantity: {quantity}</p>
-			<textarea value={comment} onChange={handleComment}></textarea>
-			<p> Comment: {comment}</p>
-			<select value={payment} onChange={handlePayment}>
-				<option value="">Select an option</option>
-				<option value="Visa">Visa</option>
-				<option value="Mastercard">Mastercad</option>
-				<option value="Paypal">Paypal</option>
-			</select>
-			<p>Payment method: {payment}</p>
-			<label htmlFor="">
-				<input
-					type="radio"
-					value="Pick up"
-					checked={shipping === 'Pick up'}
-					onChange={handleShipping}
-				/>
-				Pick up
-			</label>
-			<br />
-			<label htmlFor="">
-				<input
-					type="radio"
-					value="Delivery"
-					checked={shipping === 'Delivery'}
-					onChange={handleShipping}
-				/>
-				Delivery
-			</label>
-			<p>Shipping: {shipping}</p>
-		</>
+		<div>
+			<h1>List of Fruits</h1>
+			<input id="fruitInput" placeholder="Add fruits" />
+			<button onClick={handleAddFood}>Add Food</button>
+			<ul>
+				{food.map((fruit, index) => (
+					<li key={index} onClick={() => removeFood(index)}>
+						{fruit}
+					</li>
+				))}
+			</ul>
+		</div>
 	);
 }
 export default MyComponent;
